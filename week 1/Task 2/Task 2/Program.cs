@@ -37,7 +37,7 @@ namespace Task_2
             s1.toPrint();
             s1.inc();
             Console.ReadLine();
-            Console.ReadKey();
+            
         }
     }
 }
