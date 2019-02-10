@@ -22,30 +22,28 @@ namespace Task1
         }
         static void Main(string[] args)
         {
-            //creating a list to collect prime numbers
-            List<string> primes = new List<string>();
-            //reading the first line of an input 
-            string s1 = Console.ReadLine();
-            //converting string into an integer
-            int n = int.Parse(s1);
-            //reading the second line of an input 
-            string s2 = Console.ReadLine();
-            //adding numbers to an array by separating them 
-            string[] arr = s2.Split();
-            //running through the array and checking every element for prime 
+            int n = int.Parse(Console.ReadLine()); // Created the variable n which is the amount of numbers in array
+            string s = Console.ReadLine();
+            string[] ar = s.Split(); // Array in which every element is the number from s devided by space
+            int[] array = new int[n]; // The array with n numbers
             for (int i = 0; i < n; i++)
             {
-                if (check(arr[i]))
-                //adding prime numbers to the list 
+                array[i] = int.Parse(ar[i]); // Record every value from ar into int  to array
+            }
+            int cnt = 0; // Counter for calculating prime numbers
+            for (int i = 0; i < n; i++)
+            {
+                if (check(ar[i]) == true) // The condition Which is performed if the Function  returns true 
                 {
-                    primes.Add(arr[i]);
+                    cnt++; // Counting prime numbers
                 }
-            }//printing the amount of prime elements
-            Console.WriteLine(primes.Count);
-            //taking element into a string and separating them by the space 
-            var cmb = string.Join(" ", primes);
-            //printing the list of prime numbers in a single line 
-            Console.WriteLine(cmb);
+            }
+            Console.WriteLine(cnt); // Show the total amount of prime numbers 
+            for (int i = 0; i < n; i++)
+            {
+                if (check(ar[i]) == true) // Condition which comes into if the function returns true when the number is prime
+                    Console.Write(array[i] + " "); // Show the prime number
+            }
             Console.ReadKey();
         }
     }
