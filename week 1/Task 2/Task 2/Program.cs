@@ -4,40 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_2
+namespace Task2
 {
+    class Student
+    {
+        public string name;
+        public string Id;
+        public int YeartOFStudy;
+        public Student(string name, string id) // Constructor which will take two parameters
+        {
+            this.name = name;
+            this.Id = id;
+        }
+        public string GetName() // The Method which returns name of the Student
+        {
+            return name;
+        }
+        public string GetId() // The Method which returns ID of the Student
+        {
+            return Id;
+        }
+        public int GetYearOfStudy()  // The Method which increases Year of the Student
+        {
+            return ++YeartOFStudy;
+        }
+    }
     class Program
     {
-        class Student
-        {
-            string name, id;
-            int year = 1;
-
-            public Student(string name, string id)
-            {
-                this.name = name;
-                this.id = id;
-
-            }
-            public void toPrint()
-            {
-                Console.WriteLine("Name of student :{0} ", name);
-                Console.WriteLine("ID of student: " + id);
-            }
-            public void inc()
-            {
-                year++;
-                Console.WriteLine("Year of student increased by one, now is {0}", year);
-
-            }
-        }
         static void Main(string[] args)
         {
-            Student s1 = new Student("Krestina", "18BD110219");
-            s1.toPrint();
-            s1.inc();
-            Console.ReadLine();
-            
+            Student Info = new Student(Console.ReadLine(), Console.ReadLine());
+            Console.WriteLine(Info.GetName()); // Call The function GetName to access the Name and Show it
+            Console.WriteLine(Info.GetId()); // Call the function GetID to access the Id of the Student and Show it
+            Console.WriteLine(Info.GetYearOfStudy()); // Call the Functon GetYearOfStudy to increase the year of the study
+            Console.ReadKey();
         }
     }
 }
