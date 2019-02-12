@@ -2,40 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace Task_3
+
+namespace ConsoleApp16
 {
     class Program
     {
-        public static void ShowSpace(int level) // The function that show Spaces
+        static void whiteSpace(int level) // The function that show Spaces
         {
-            for (int k = 0; k < level; k++) // Cycle for showing Spaces
+            for (int i = 0; i < level * 4; i++) // Cycle for showing Spaces
             {
-                Console.Write("    ");// Show Spaces 
+                Console.Write(' '); // Show Spaces 
             }
         }
-        public static void UsingDirc(DirectoryInfo dir, int level)
+        static void print(string path, int level)
         {
+            DirectoryInfo directory = new DirectoryInfo(path); // Write the path to the directory With which we works
+            FileInfo[] fileInfos = directory.GetFiles();
+            DirectoryInfo[] directoryInfos = directory.GetDirectories();
+            foreach (FileInfo f in fileInfos) // Cycle for Files
+            {
+                whiteSpace(level); 
+                Console.WriteLine(f.Name); // Show the Name of each file from the given directory
+            }
+            foreach (DirectoryInfo d in directoryInfos) // Cycle for Directories
+            {
+                whiteSpace(level);
+                Console.WriteLine(d.Name);// Show the name of the Folders
+                print(d.FullName, level + 1);
+            }
 
-            foreach (FileInfo file in dir.GetFiles()) // Cycle for Files
-            {
-                ShowSpace(level + 1); // Call the function "ShowSpace" with level + 1 To separate by space our files
-                Console.WriteLine(file.Name); // Show the Name of each file from the given directory
-            }
-            foreach (DirectoryInfo direct in dir.GetDirectories()) // Cycle for Directories
-            {
-                ShowSpace(level + 1); // Call the function "ShowSpaces" with level + 1 To Separate by space out folders
-                Console.WriteLine(direct.Name); // Show the name of the Folders
-                UsingDirc(direct, level + 2); // Recuria(Recall the ofigin function with another directory and level)
-            }
         }
+
         static void Main(string[] args)
         {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\acer\Desktop\pp1lab"); // Write the path to the directory With which we works
-            Console.WriteLine(dir.Name); // Show the name Of our folder
-            UsingDirc(dir, 0);//Call the function with dir and 0(the number of spaces)
+            string path = @"C:\Users\acer\Desktop\c++";
+            print(path, 0); //Call the function with path and 0(the number of spaces)
             Console.ReadKey();
         }
     }
