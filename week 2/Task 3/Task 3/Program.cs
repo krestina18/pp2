@@ -38,7 +38,7 @@ namespace ConsoleApp16
 
         static void Main(string[] args)
         {
-            string path = @"C:\Users\acer\Desktop\c++";
+            string path = @"C:\Users\acer\Desktop\UPSOLVING";
             print(path, 0); //Call the function with path and 0(the number of spaces)
             Console.ReadKey();
         }

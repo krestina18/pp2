@@ -23,11 +23,11 @@ namespace ConsoleApp16
         static void Main(string[] args)
         {
             StreamReader sr = new StreamReader(@"C:\Users\acer\Desktop\input.txt"); //read file;
-            string s = sr.ReadToEnd(); // read from begin to end
+            string s = sr.ReadToEnd(); 
             sr.Close(); // closing sr
             if (polindrome(s)) Console.WriteLine("Yes");
             else Console.WriteLine("No");
-            Console.ReadKey();
+            Console.ReadKey(); 
         }
         
         

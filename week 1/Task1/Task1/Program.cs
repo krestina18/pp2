@@ -41,7 +41,7 @@ namespace Task_1 {
                 Console.Write(' ');
                 }
             }
-            Console.ReadKey();
+            Console.ReadKey(); 
         }
     }
 }

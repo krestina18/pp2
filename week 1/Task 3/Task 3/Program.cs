@@ -34,6 +34,6 @@ namespace Task_3
                 Console.Write(array[i]); //Show an array
                 Console.Write(' ');
             }
-            Console.ReadKey();
+            Console.ReadKey(); 
         }
     } }
